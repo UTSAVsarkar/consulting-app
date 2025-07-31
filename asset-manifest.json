@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/consulting-app/static/css/main.f855e6bc.css",
+    "main.js": "/consulting-app/static/js/main.f1d4180e.js",
+    "static/js/453.dffba8f2.chunk.js": "/consulting-app/static/js/453.dffba8f2.chunk.js",
+    "static/media/logo.svg": "/consulting-app/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/consulting-app/index.html",
+    "main.f855e6bc.css.map": "/consulting-app/static/css/main.f855e6bc.css.map",
+    "main.f1d4180e.js.map": "/consulting-app/static/js/main.f1d4180e.js.map",
+    "453.dffba8f2.chunk.js.map": "/consulting-app/static/js/453.dffba8f2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.f1d4180e.js"
+  ]
+}

@@ -107,8 +107,18 @@ export default function ServiceTimeline() {
                                         borderColor: '#48c4c4',
                                     }}
                                 >
-                                    <Typography variant="h6" component="h3" color="primary" style={{ color: '#0A1D56' }}>
-                                        {service.title}
+                                    <Typography variant="h6" component="h3" color="primary"
+                                        style={{
+                                            color: '#0A1D56',
+                                        }}>
+                                        <span
+                                            style={{
+                                                color: "#0A1D56",
+                                                borderBottom: "2px solid #d4d200",
+                                            }}
+                                        >
+                                            {service.title}
+                                        </span>
                                     </Typography>
                                     <Typography>{service.description}</Typography>
                                 </Paper>

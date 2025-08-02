@@ -11,7 +11,7 @@ function App() {
         {/* Global background gradient */}
         <ParallaxLayer offset={0} speed={0.05} factor={5}>
           <div className="floating-shapes">
-            {[...Array(200)].map((_, i) => (
+            {[...Array(300)].map((_, i) => (
               <span
                 key={i}
                 className="shape"

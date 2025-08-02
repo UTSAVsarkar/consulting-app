@@ -1,6 +1,6 @@
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Contact from "./Components/Contact";
-import FeatureSelection from "./Components/FeatureSection/FeatureSelection";
+import FeatureSelection from "./Components/FeatureSelection";
 import "./App.css";
 
 function App() {

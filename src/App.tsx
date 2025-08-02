@@ -2,11 +2,12 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Contact from "./Components/Contact";
 import FeatureSelection from "./Components/FeatureSelection";
 import "./App.css";
+import ServiceTimeline from "./Components/ServiceTimeline";
 
 function App() {
   return (
     <div className="App">
-      <Parallax pages={5}>
+      <Parallax pages={6}>
         {/* Global background gradient */}
         <ParallaxLayer offset={0} speed={0.05} factor={5}>
           <div className="floating-shapes">
@@ -86,8 +87,15 @@ function App() {
           </div>
         </ParallaxLayer>
 
-        {/* Contact */}
+        {/* Services */}
         <ParallaxLayer offset={4} speed={0.3}>
+          <div className="section">
+            <ServiceTimeline />
+          </div>
+        </ParallaxLayer>
+
+        {/* Contact */}
+        <ParallaxLayer offset={5} speed={0.3}>
           <div className="section">
             <Contact />
           </div>

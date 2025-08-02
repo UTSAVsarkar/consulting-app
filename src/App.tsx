@@ -8,19 +8,20 @@ function App() {
     <div className="App">
       <Parallax pages={5}>
         {/* Global background gradient */}
-        <ParallaxLayer
-          offset={0}
-          speed={0}
-          factor={5}
-          style={{
-            background:
-              "linear-gradient(to bottom, #0f0c29, #302b63, #24243e)",
-          }}
-        />
-
-        {/* Floating glass effect overlay */}
-        <ParallaxLayer offset={0} speed={0.1}>
-          <div className="floating-glass" />
+        <ParallaxLayer offset={0} speed={0.05} factor={5}>
+          <div className="floating-shapes">
+            {[...Array(200)].map((_, i) => (
+              <span
+                key={i}
+                className="shape"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  animationDelay: `${Math.random() * 5}s`,
+                }}
+              />
+            ))}
+          </div>
         </ParallaxLayer>
 
         {/* Section 0: Hero */}

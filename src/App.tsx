@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <Parallax pages={isMobile?8.5:7.5} ref={parallaxRef}>
+      <Parallax pages={isMobile ? 8.5 : 7.5} ref={parallaxRef}>
         {/* Floating Background */}
         <ParallaxLayer offset={0} speed={0.05} factor={7.5}>
           <div className="floating-shapes">

@@ -2,19 +2,30 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Contact from "./Components/Contact";
 import FeatureSelection from "./Components/FeatureSelection";
 import ServiceTimeline from "./Components/ServiceTimeline";
-import "./App.css";
 import AboutUs from "./Components/AboutUs";
-import { useMediaQuery, useTheme } from "@mui/material"; // if using MUI
-
+import "./App.css";
+import { useRef, useState } from "react";
+import {
+  Modal,
+  Box,
+  IconButton,
+  Button,
+} from "@mui/material";
 
 function App() {
-const theme = useTheme();
-const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [openAbout, setOpenAbout] = useState(false);
+  const handleOpenAbout = () => setOpenAbout(true);
+  const handleCloseAbout = () => setOpenAbout(false);
+  const parallaxRef = useRef<any>(null);
+
+  const scrollToSection = (offset: number) => {
+    parallaxRef.current?.scrollTo(offset);
+  };
 
   return (
     <div className="App">
-      <Parallax pages={7.5}>
-        {/* Global background gradient with floating shapes */}
+      <Parallax pages={6.5} ref={parallaxRef}>
+        {/* Floating Background */}
         <ParallaxLayer offset={0} speed={0.05} factor={6.5}>
           <div className="floating-shapes">
             {[...Array(300)].map((_, i) => (
@@ -36,25 +47,33 @@ const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
           <div className="section center">
             <h1 className="hero-title">ReliqX</h1>
             <p className="hero-subtitle">AI & ADVISORY</p>
+
+            <div className="hero-buttons">
+              <button className="neon-button" onClick={handleOpenAbout}>
+                ABOUT US
+              </button>
+              <button className="neon-button" onClick={() => scrollToSection(5.5)}>
+                CONTACT
+              </button>
+            </div>
+
+            <div className="mouse-scroll" onClick={() => scrollToSection(1)}>
+              <div className="mouse">
+                <div className="wheel"></div>
+              </div>
+              <span className="scroll-text">Scroll</span>
+            </div>
           </div>
         </ParallaxLayer>
 
-        {/* ABOUT US */}
+        {/* Feature Sections */}
         <ParallaxLayer offset={1} speed={0.4}>
-          <div className="section">
-            <AboutUs />
-          </div>
-        </ParallaxLayer>
-
-        {/* Feature 1 */}
-        <ParallaxLayer offset={2} speed={0.4}>
           <div className="section">
             <FeatureSelection
               num="01"
               feature="Automate"
               para="Our automation solutions are tailored to simplify complex processes,
-              saving time and resources for businesses. Experience seamless operations
-              and increased efficiency with our innovative automation tools."
+                saving time and resources for businesses."
               points={[
                 "Simplify complex business processes",
                 "Save time and resources efficiently",
@@ -64,15 +83,12 @@ const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
           </div>
         </ParallaxLayer>
 
-        {/* Feature 2 */}
-        <ParallaxLayer offset={3} speed={0.4}>
+        <ParallaxLayer offset={2} speed={0.4}>
           <div className="section">
             <FeatureSelection
               num="02"
               feature="Analyse"
-              para="Unlock valuable insights and make informed decisions with our powerful
-              data analytics solutions. Dive deep into your data to drive strategic
-              actions and achieve your business goals."
+              para="Unlock valuable insights and make informed decisions with our powerful data analytics solutions."
               points={[
                 "Gain actionable insights from your data",
                 "Drive smarter decisions with analytics",
@@ -82,15 +98,12 @@ const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
           </div>
         </ParallaxLayer>
 
-        {/* Feature 3 */}
-        <ParallaxLayer offset={4} speed={0.4}>
+        <ParallaxLayer offset={3} speed={0.4}>
           <div className="section">
             <FeatureSelection
               num="03"
               feature="Customize"
-              para="We understand that every industry is unique. Our customizable platforms
-              adapt to your specific needs, ensuring optimal performance and maximum
-              results for your business."
+              para="We understand that every industry is unique. Our customizable platforms adapt to your specific needs."
               points={[
                 "Tailored workflows for every business type",
                 "Seamless integration with your existing tools",
@@ -100,22 +113,72 @@ const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
           </div>
         </ParallaxLayer>
 
-        {/* Services Section - Adjusted height */}
-        <ParallaxLayer offset={5} speed={0.3} factor={1.2}>
+        <ParallaxLayer offset={4} speed={0.3} factor={1.2}>
           <div className="section">
             <ServiceTimeline />
           </div>
         </ParallaxLayer>
 
-        {/* Contact Section - Adjusted offset to avoid overlap */}
-        <ParallaxLayer offset={6.5} speed={0.3} factor={1}>
+        <ParallaxLayer offset={5.5} speed={0.3} factor={1}>
           <div className="section">
             <Contact />
           </div>
         </ParallaxLayer>
       </Parallax>
-    </div>
+
+
+      {/* About Us Modal */}
+      <Modal open={openAbout} onClose={handleCloseAbout}>
+        <Box sx={modalStyle}>
+          {/* Top-right Close Icon (optional) */}
+          <IconButton
+            onClick={handleCloseAbout}
+            sx={{ position: "absolute", top: 8, right: 8, color: "#00ffff" }}
+          >
+          </IconButton>
+
+          {/* Actual Content */}
+          <AboutUs />
+
+          {/* Centered Close Button at Bottom */}
+          <Box display="flex" justifyContent="center">
+            <Button
+              variant="outlined"
+              color="info"
+              onClick={handleCloseAbout}
+              sx={{
+                borderColor: "#00ffff",
+                color: "#00ffff",
+                "&:hover": {
+                  backgroundColor: "rgba(0,255,255,0.1)",
+                  borderColor: "#00ffff",
+                },
+              }}
+            >
+              Close
+            </Button>
+          </Box>
+        </Box>
+      </Modal>
+    </div >
   );
 }
 
 export default App;
+
+const modalStyle = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "rgba(0,0,0,0.9)",
+  border: "2px solid #00ffff",
+  boxShadow: "0 0 30px #00ffff66",
+  borderRadius: "12px",
+  p: 2,
+  maxHeight: "90vh",
+  overflowY: "auto",
+  width: "95vw",
+  maxWidth: "1000px",
+  backdropFilter: "blur(20px)",
+};

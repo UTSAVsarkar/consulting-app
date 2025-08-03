@@ -91,7 +91,7 @@ export default function ServiceTimeline() {
                 // Desktop View: Timeline
                 <Timeline position="alternate">
                     {services.map((service, idx) => (
-                        <TimelineItem key={idx}>
+                        <TimelineItem key={idx} style={{cursor: 'pointer'}}>
                             <TimelineSeparator>
                                 <TimelineDot color="primary" style={{ background: '#48c4c4' }} />
                                 {idx !== services.length - 1 && <TimelineConnector />}

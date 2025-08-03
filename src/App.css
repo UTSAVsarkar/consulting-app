@@ -29,14 +29,12 @@ body, html, .App {
   position: relative;
   z-index: 1;
   overflow: hidden;
-  animation: floatBackground 20s ease-in-out infinite;
+  animation: floatBackground 2s ease-in-out infinite;
 }
 
 .interlude::before {
   content: "";
   position: absolute;
-  width: 300px;
-  height: 300px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
   animation: pulse 6s ease-in-out infinite;
@@ -53,6 +51,7 @@ body, html, .App {
   z-index: 2;
   max-width: 90%;
   line-height: 1.3;
+  text-transform: capitalize;
 }
 
 @keyframes fadeSlideIn {

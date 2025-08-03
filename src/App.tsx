@@ -39,14 +39,6 @@ const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
           </div>
         </ParallaxLayer>
 
-
-        <ParallaxLayer offset={0.7} speed={0.3}>
-          <div className="section interlude">
-            <h2 className="interlude-text">Meet the Team</h2>
-          </div>
-        </ParallaxLayer>
-
-
         {/* ABOUT US */}
         <ParallaxLayer offset={1} speed={0.4}>
           <div className="section">

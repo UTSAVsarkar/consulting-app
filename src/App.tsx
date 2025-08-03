@@ -6,10 +6,12 @@ import AboutUs from "./Components/AboutUs";
 import "./App.css";
 import { useRef } from "react";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import PsychologyIcon from '@mui/icons-material/Psychology';
+import { useMediaQuery, useTheme } from "@mui/material";
 
 function App() {
   const parallaxRef = useRef<any>(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const scrollToSection = (offset: number) => {
     parallaxRef.current?.scrollTo(offset);
@@ -17,11 +19,11 @@ function App() {
 
   return (
     <div className="App">
-      <Parallax pages={7.5} ref={parallaxRef}>
+      <Parallax pages={isMobile?8.5:7.5} ref={parallaxRef}>
         {/* Floating Background */}
         <ParallaxLayer offset={0} speed={0.05} factor={7.5}>
           <div className="floating-shapes">
-            {[...Array(400)].map((_, i) => (
+            {[...Array(500)].map((_, i) => (
               <span
                 key={i}
                 className="shape"
@@ -65,7 +67,7 @@ function App() {
         </ParallaxLayer>
 
         {/* Features */}
-        <ParallaxLayer offset={2} speed={0.4}>
+        <ParallaxLayer offset={isMobile ? 2.5 : 2} speed={0.4}>
           <div className="section">
             <FeatureSelection
               num="01"
@@ -81,7 +83,7 @@ function App() {
           </div>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={3} speed={0.4}>
+        <ParallaxLayer offset={isMobile ? 3.5 : 3} speed={0.4}>
           <div className="section">
             <FeatureSelection
               num="02"
@@ -96,7 +98,7 @@ function App() {
           </div>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={4} speed={0.4}>
+        <ParallaxLayer offset={isMobile ? 4.5 : 4} speed={0.4}>
           <div className="section">
             <FeatureSelection
               num="03"
@@ -111,13 +113,13 @@ function App() {
           </div>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={5} speed={0.3} factor={1.2}>
+        <ParallaxLayer offset={isMobile ? 5.5 : 5} speed={0.3} factor={1.2}>
           <div className="section">
             <ServiceTimeline />
           </div>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={6.5} speed={0.3} factor={1}>
+        <ParallaxLayer offset={isMobile ? 7 : 6.5} speed={0.3} factor={1}>
           <div className="section" style={{ position: "relative" }}>
             <Contact />
 
@@ -126,7 +128,7 @@ function App() {
               onClick={() => parallaxRef.current.scrollTo(0)}
               style={{
                 position: "absolute",
-                bottom: -80,
+                bottom: -100,
                 left: "50%",
                 transform: "translateX(-50%)",
                 cursor: "pointer",

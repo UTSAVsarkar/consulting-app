@@ -11,12 +11,7 @@ import {
 
 const Contact = () => {
     return (
-        <Box sx={{
-            minHeight: "100vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-        }}>
+        <Box sx={{ px: { xs: 3, md: 10 }, py: 8, position: "relative" }}>
             <Container maxWidth="lg">
                 <Paper elevation={1} sx={{ borderRadius: 3, overflow: "hidden" }}>
                     <Grid container>

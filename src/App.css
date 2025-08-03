@@ -9,15 +9,90 @@ body, html, .App {
 
 .section {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.interlude {
+  display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   padding: 2rem;
-  box-sizing: border-box;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  animation: floatBackground 20s ease-in-out infinite;
 }
 
+.interlude::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+  animation: pulse 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+.interlude-text {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  background: linear-gradient(90deg, #00c9ff, #92fe9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeSlideIn 1.5s ease forwards;
+  z-index: 2;
+  max-width: 90%;
+  line-height: 1.3;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+}
+
+@keyframes floatBackground {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+
+
 .center {
-  flex-direction: column;
   text-align: center;
 }
 
@@ -37,30 +112,7 @@ body, html, .App {
   animation: fadeInUp 1.5s ease-out;
 }
 
-.floating-glass {
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(40px);
-  -webkit-backdrop-filter: blur(40px);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Floating background shapes */
 .floating-shapes {
   position: absolute;
   width: 100%;
@@ -87,5 +139,36 @@ body, html, .App {
   100% {
     transform: translateY(-200px) scale(1.2);
     opacity: 0.8;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive tweaks */
+@media screen and (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  .floating-shapes {
+    height: 300%;
   }
 }

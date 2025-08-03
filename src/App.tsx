@@ -1,15 +1,15 @@
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Contact from "./Components/Contact";
 import FeatureSelection from "./Components/FeatureSelection";
-import "./App.css";
 import ServiceTimeline from "./Components/ServiceTimeline";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Parallax pages={6}>
-        {/* Global background gradient */}
-        <ParallaxLayer offset={0} speed={0.05} factor={5}>
+      <Parallax pages={6.5}>
+        {/* Global background gradient with floating shapes */}
+        <ParallaxLayer offset={0} speed={0.05} factor={6.5}>
           <div className="floating-shapes">
             {[...Array(300)].map((_, i) => (
               <span
@@ -25,13 +25,20 @@ function App() {
           </div>
         </ParallaxLayer>
 
-        {/* Section 0: Hero */}
+        {/* Hero Section */}
         <ParallaxLayer offset={0} speed={0.5}>
           <div className="section center">
             <h1 className="hero-title">ReliqX</h1>
             <p className="hero-subtitle">AI & ADVISORY</p>
           </div>
         </ParallaxLayer>
+
+        <ParallaxLayer offset={0.7} speed={0.3}>
+          <div className="section interlude">
+            <h2 className="interlude-text">Empowering businesses through automation</h2>
+          </div>
+        </ParallaxLayer>
+
 
         {/* Feature 1 */}
         <ParallaxLayer offset={1} speed={0.4}>
@@ -51,6 +58,13 @@ function App() {
           </div>
         </ParallaxLayer>
 
+        <ParallaxLayer offset={1.7} speed={0.3}>
+          <div className="section interlude">
+            <h2 className="interlude-text">Harness the power of data for smarter decisions</h2>
+          </div>
+        </ParallaxLayer>
+
+
         {/* Feature 2 */}
         <ParallaxLayer offset={2} speed={0.4}>
           <div className="section">
@@ -68,6 +82,13 @@ function App() {
             />
           </div>
         </ParallaxLayer>
+
+        <ParallaxLayer offset={2.7} speed={0.3}>
+          <div className="section interlude">
+            <h2 className="interlude-text">Built to adapt, scale, and transform</h2>
+          </div>
+        </ParallaxLayer>
+
 
         {/* Feature 3 */}
         <ParallaxLayer offset={3} speed={0.4}>
@@ -87,15 +108,30 @@ function App() {
           </div>
         </ParallaxLayer>
 
-        {/* Services */}
-        <ParallaxLayer offset={4} speed={0.3}>
+        <ParallaxLayer offset={3.6} speed={0.3}>
+          <div className="section interlude">
+            <h2 className="interlude-text">Our services guide you from ideation to execution</h2>
+          </div>
+        </ParallaxLayer>
+
+
+        {/* Services Section - Adjusted height */}
+        <ParallaxLayer offset={4} speed={0.3} factor={1.2}>
           <div className="section">
             <ServiceTimeline />
           </div>
         </ParallaxLayer>
 
-        {/* Contact */}
         <ParallaxLayer offset={5} speed={0.3}>
+          <div className="section interlude">
+            <h2 className="interlude-text">
+              Let’s unlock your potential
+            </h2>
+          </div>
+        </ParallaxLayer>
+
+        {/* Contact Section - Adjusted offset to avoid overlap */}
+        <ParallaxLayer offset={5.5} speed={0.3} factor={1}>
           <div className="section">
             <Contact />
           </div>

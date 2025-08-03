@@ -10,15 +10,15 @@ import { Typewriter } from "react-simple-typewriter";
 const teamMembers = [
   {
     name: "TUSHAR YADAV",
-    title: "Chief Innovation Officer",
-    image: "https://i.pravatar.cc/150?img=1",
+    title: "Ex-Junior Engineer at SANY India",
+    image: "https://media.licdn.com/dms/image/v2/D4D03AQFSz2jIp1XZSA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1722883066434?e=1756944000&v=beta&t=I9uso2gAKhpcgE9P8j_kY8q37lFfGb5nVc-HgGWam8M",
     description:
       "Tushar drives AI-powered solutions and leads cross-functional innovation projects with bold thinking.",
-    linkedin: "https://linkedin.com/in/tusharyadav",
+    linkedin: "https://www.linkedin.com/in/tushar-yadav-81a6a8166/",
   },
   {
     name: "UTSAV SARKAR",
-    title: "EX-SDE @ MAQ Software",
+    title: "Ex-SDE at MAQ Software",
     image: "https://media.licdn.com/dms/image/v2/D4D03AQG7vvXkabeY7A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1722932249697?e=1756944000&v=beta&t=S3uRNHDcqnaz_2mlwcSaC7aMG1WXFEghrAxS95aqY1U",
     description:
       "Utsav bridges business goals and data insights, creating growth-focused strategies and scalable systems.",

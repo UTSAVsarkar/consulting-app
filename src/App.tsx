@@ -4,18 +4,11 @@ import FeatureSelection from "./Components/FeatureSelection";
 import ServiceTimeline from "./Components/ServiceTimeline";
 import AboutUs from "./Components/AboutUs";
 import "./App.css";
-import { useRef, useState } from "react";
-import {
-  Modal,
-  Box,
-  IconButton,
-  Button,
-} from "@mui/material";
+import { useRef } from "react";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import PsychologyIcon from '@mui/icons-material/Psychology';
 
 function App() {
-  const [openAbout, setOpenAbout] = useState(false);
-  const handleOpenAbout = () => setOpenAbout(true);
-  const handleCloseAbout = () => setOpenAbout(false);
   const parallaxRef = useRef<any>(null);
 
   const scrollToSection = (offset: number) => {
@@ -24,11 +17,11 @@ function App() {
 
   return (
     <div className="App">
-      <Parallax pages={6.5} ref={parallaxRef}>
+      <Parallax pages={7.5} ref={parallaxRef}>
         {/* Floating Background */}
-        <ParallaxLayer offset={0} speed={0.05} factor={6.5}>
+        <ParallaxLayer offset={0} speed={0.05} factor={7.5}>
           <div className="floating-shapes">
-            {[...Array(300)].map((_, i) => (
+            {[...Array(400)].map((_, i) => (
               <span
                 key={i}
                 className="shape"
@@ -45,14 +38,12 @@ function App() {
         {/* Hero Section */}
         <ParallaxLayer offset={0} speed={0.5}>
           <div className="section center">
+
             <h1 className="hero-title">ReliqX</h1>
             <p className="hero-subtitle">AI & ADVISORY</p>
 
             <div className="hero-buttons">
-              <button className="neon-button" onClick={handleOpenAbout}>
-                ABOUT US
-              </button>
-              <button className="neon-button" onClick={() => scrollToSection(5.5)}>
+              <button className="neon-button" onClick={() => scrollToSection(6.5)}>
                 CONTACT
               </button>
             </div>
@@ -66,8 +57,15 @@ function App() {
           </div>
         </ParallaxLayer>
 
-        {/* Feature Sections */}
+        {/* About Us (now full page) */}
         <ParallaxLayer offset={1} speed={0.4}>
+          <div className="section">
+            <AboutUs />
+          </div>
+        </ParallaxLayer>
+
+        {/* Features */}
+        <ParallaxLayer offset={2} speed={0.4}>
           <div className="section">
             <FeatureSelection
               num="01"
@@ -83,7 +81,7 @@ function App() {
           </div>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={2} speed={0.4}>
+        <ParallaxLayer offset={3} speed={0.4}>
           <div className="section">
             <FeatureSelection
               num="02"
@@ -98,7 +96,7 @@ function App() {
           </div>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={3} speed={0.4}>
+        <ParallaxLayer offset={4} speed={0.4}>
           <div className="section">
             <FeatureSelection
               num="03"
@@ -113,72 +111,37 @@ function App() {
           </div>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={4} speed={0.3} factor={1.2}>
+        <ParallaxLayer offset={5} speed={0.3} factor={1.2}>
           <div className="section">
             <ServiceTimeline />
           </div>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={5.5} speed={0.3} factor={1}>
-          <div className="section">
+        <ParallaxLayer offset={6.5} speed={0.3} factor={1}>
+          <div className="section" style={{ position: "relative" }}>
             <Contact />
-          </div>
-        </ParallaxLayer>
-      </Parallax>
 
-
-      {/* About Us Modal */}
-      <Modal open={openAbout} onClose={handleCloseAbout}>
-        <Box sx={modalStyle}>
-          {/* Top-right Close Icon (optional) */}
-          <IconButton
-            onClick={handleCloseAbout}
-            sx={{ position: "absolute", top: 8, right: 8, color: "#00ffff" }}
-          >
-          </IconButton>
-
-          {/* Actual Content */}
-          <AboutUs />
-
-          {/* Centered Close Button at Bottom */}
-          <Box display="flex" justifyContent="center">
-            <Button
-              variant="outlined"
-              color="info"
-              onClick={handleCloseAbout}
-              sx={{
-                borderColor: "#00ffff",
-                color: "#00ffff",
-                "&:hover": {
-                  backgroundColor: "rgba(0,255,255,0.1)",
-                  borderColor: "#00ffff",
-                },
+            {/* Scroll Up Arrow */}
+            <div
+              onClick={() => parallaxRef.current.scrollTo(0)}
+              style={{
+                position: "absolute",
+                bottom: -80,
+                left: "50%",
+                transform: "translateX(-50%)",
+                cursor: "pointer",
+                color: "#555",
+                animation: "bounce 1.5s infinite",
               }}
             >
-              Close
-            </Button>
-          </Box>
-        </Box>
-      </Modal>
-    </div >
+              <KeyboardArrowUpIcon sx={{ fontSize: 80, color: 'white' }} />
+            </div>
+          </div>
+        </ParallaxLayer>
+
+      </Parallax>
+    </div>
   );
 }
 
 export default App;
-
-const modalStyle = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  bgcolor: "rgba(0,0,0,0.9)",
-  border: "2px solid #00ffff",
-  boxShadow: "0 0 30px #00ffff66",
-  borderRadius: "12px",
-  p: 2,
-  maxHeight: "90vh",
-  overflowY: "auto",
-  width: "95vw",
-  maxWidth: "1000px",
-  backdropFilter: "blur(20px)",
-};

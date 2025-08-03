@@ -33,9 +33,9 @@ const FeatureSelection = (props: Props) => {
                         primary={text}
                         primaryTypographyProps={{
                             sx: {
-                                fontSize: "1.05rem",
+                                fontSize: isMobile ? "1.05rem" : '1.5rem',
                                 fontWeight: 500,
-                                color: "white",
+                                color: "#48c4c4",
                             },
                         }}
                     />
@@ -69,13 +69,13 @@ const FeatureSelection = (props: Props) => {
                         md: 6
                     }}
                     sx={{
-                        backgroundColor: "",
                         color: "#fff",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         height: { xs: "200px", md: "300px" },
-                        border: isMobile ? '' :"1px solid #fff",
+                        backgroundColor: "rgba(255, 255, 255, 0.06)",
+                        backdropFilter: "blur(8px)",
                     }}
                 >
                     <Typography
@@ -97,27 +97,28 @@ const FeatureSelection = (props: Props) => {
                         md: 6
                     }}
                     sx={{
-                        backgroundColor: "white",
+                        backgroundColor: "black",
                         color: "#fff",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         pl: { xs: 2, md: 4 },
                         height: { xs: "200px", md: "300px" },
-                        
+                        border: isMobile ? '1px solid black' : '',
                     }}
                 >
                     <Typography
-                        variant="h4"
+                        variant="h3"
                         sx={{
                             fontWeight: 800,
-                            color: "#0A1D56",
+                            color: "white",
                         }}
                     >
                         We{" "}
+                        <br />
                         <span
                             style={{
-                                color: "#0A1D56",
+                                color: "white",
                                 borderBottom: "5px solid #d4d200",
                             }}
                         >
@@ -133,16 +134,17 @@ const FeatureSelection = (props: Props) => {
                         md: 6
                     }}
                     sx={{
-                        backgroundColor: "white",
+                        backgroundColor: "black",
                         display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
+                        alignItems: isMobile ? '' : "center",
+                        justifyContent: isMobile ? '' : "center",
                         textAlign: "center",
                         p: 3,
                         height: { xs: "200px", md: "300px" },
+                        border: isMobile ? '1px solid black' : ''
                     }}
                 >
-                    <Typography variant="body1" sx={{ color: "#0A1D56", fontSize: "1.1rem" }}>
+                    <Typography variant="body1" sx={{ color: "white", fontSize: isMobile ? "1.1rem" : '1.5rem' }}>
                         {props.para}
                     </Typography>
                 </Grid>
@@ -154,12 +156,12 @@ const FeatureSelection = (props: Props) => {
                         md: 6
                     }}
                     sx={{
-                        backgroundColor: "black",
+                        backgroundColor: "rgba(255, 255, 255, 0.06)",
+                        backdropFilter: "blur(8px)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         textAlign: "center",
-                        p: 4,
                         height: { xs: "200px", md: "300px" },
                     }}
                 >

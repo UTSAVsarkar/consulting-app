@@ -19,7 +19,7 @@ function App() {
     <div className="App">
       {/* Floating Background */}
       <div className="floating-shapes">
-        {[...Array(300)].map((_, i) => (
+        {[...Array(80)].map((_, i) => (
           <span
             key={i}
             className="shape"

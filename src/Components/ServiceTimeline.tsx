@@ -79,17 +79,16 @@ export default function ServiceTimeline() {
                         px: 5,
                         py: 2.5,
                         borderRadius: "16px",
-                        background: "#48c4c4",
-                        color: "white",
+                        color: "#48c4c4",
                         fontWeight: "bold",
-                        fontSize: "1.5rem",
+                        fontSize: "3rem",
                         textAlign: "center",
                         letterSpacing: "1px",
-                        boxShadow: "0 8px 16px rgba(56, 178, 172, 0.3)",
                         transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                        backgroundColor: "rgba(255, 255, 255, 0.06)",
+                        backdropFilter: "blur(8px)",
                         "&:hover": {
-                            transform: "scale(1.03)",
-                            boxShadow: "0 12px 24px rgba(56, 178, 172, 0.5)",
+                            transform: "scale(1.05)",
                         },
                     }}
                 >
@@ -110,16 +109,16 @@ export default function ServiceTimeline() {
                                 textAlign: "center",
                                 cursor: "pointer",
                                 backgroundColor: "rgba(255, 255, 255, 0.06)",
-                                        backdropFilter: "blur(10px)",
+                                backdropFilter: "blur(10px)",
                             }}
                         >
                             <Typography variant="h6" color="primary" gutterBottom sx={{
-                                            color: '#48c4c4',
+                                color: '#48c4c4',
 
                             }}>
                                 {service.title}
                             </Typography>
-                            <Typography sx={{color:'wheat'}}>{service.description}</Typography>
+                            <Typography sx={{ color: 'wheat' }}>{service.description}</Typography>
                         </Paper>
                     ))}
                 </Stack>
@@ -159,7 +158,7 @@ export default function ServiceTimeline() {
                                     >
                                         {service.title}
                                     </Typography>
-                                    <Typography style={{color:'wheat'}}>{service.description}</Typography>
+                                    <Typography style={{ color: 'wheat' }}>{service.description}</Typography>
                                 </Paper>
                             </TimelineContent>
                         </TimelineItem>

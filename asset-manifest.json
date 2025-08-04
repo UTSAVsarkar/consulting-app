@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/consulting-app/static/css/main.f3425966.css",
-    "main.js": "/consulting-app/static/js/main.08dc7aa1.js",
+    "main.css": "/consulting-app/static/css/main.7d7d0a20.css",
+    "main.js": "/consulting-app/static/js/main.ad2a95d8.js",
     "static/js/453.dffba8f2.chunk.js": "/consulting-app/static/js/453.dffba8f2.chunk.js",
     "index.html": "/consulting-app/index.html",
-    "main.f3425966.css.map": "/consulting-app/static/css/main.f3425966.css.map",
-    "main.08dc7aa1.js.map": "/consulting-app/static/js/main.08dc7aa1.js.map",
+    "main.7d7d0a20.css.map": "/consulting-app/static/css/main.7d7d0a20.css.map",
+    "main.ad2a95d8.js.map": "/consulting-app/static/js/main.ad2a95d8.js.map",
     "453.dffba8f2.chunk.js.map": "/consulting-app/static/js/453.dffba8f2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f3425966.css",
-    "static/js/main.08dc7aa1.js"
+    "static/css/main.7d7d0a20.css",
+    "static/js/main.ad2a95d8.js"
   ]
 }

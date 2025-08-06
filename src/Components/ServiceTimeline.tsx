@@ -11,6 +11,7 @@ import {
     DialogTitle,
     DialogContent,
     IconButton,
+    Slide,
 } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
 import {
@@ -22,6 +23,16 @@ import {
     TimelineDot,
 } from "@mui/lab";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import { TransitionProps } from "@mui/material/transitions";
+
+const Transition = React.forwardRef(function Transition(
+    props: TransitionProps & {
+        children: React.ReactElement<any, any>;
+    },
+    ref: React.Ref<unknown>,
+) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 // Dummy service data
 const services = [
@@ -172,7 +183,11 @@ export default function ServiceTimeline() {
                 onClose={handleClose}
                 fullWidth
                 maxWidth="sm"
-                scroll="body"
+                scroll="paper"
+                keepMounted
+                slots={{
+                    transition: Transition,
+                }}
                 PaperProps={{
                     sx: {
                         backgroundColor: "#1a1a1d", // Clean dark background (no blur)

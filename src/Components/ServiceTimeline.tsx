@@ -10,7 +10,6 @@ import {
     Dialog,
     DialogTitle,
     DialogContent,
-    DialogContentText,
     IconButton,
 } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
@@ -22,6 +21,7 @@ import {
     TimelineContent,
     TimelineDot,
 } from "@mui/lab";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 // Dummy service data
 const services = [
@@ -167,15 +167,89 @@ export default function ServiceTimeline() {
             )}
 
             {/* Modal */}
-            <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
-                <DialogTitle sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Dialog
+                open={open}
+                onClose={handleClose}
+                fullWidth
+                maxWidth="sm"
+                scroll="body"
+                PaperProps={{
+                    sx: {
+                        backgroundColor: "#1a1a1d", // Clean dark background (no blur)
+                        borderRadius: 4,
+                        px: { xs: 2, sm: 4 },
+                        py: { xs: 3, sm: 4 },
+                        color: "white",
+                        boxShadow: "0 0 20px rgba(72, 196, 196, 0.25)",
+                    },
+                }}
+            >
+                <DialogTitle
+                    sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        fontWeight: "bold",
+                        color: "#48c4c4",
+                        fontSize: { xs: "1.5rem", sm: "1.8rem" },
+                    }}
+                >
                     {selectedService?.title}
                     <IconButton onClick={handleClose}>
-                        <CloseIcon />
+                        <CloseIcon sx={{ color: "white" }} />
                     </IconButton>
                 </DialogTitle>
+
                 <DialogContent>
-                    <DialogContentText>{selectedService?.description}</DialogContentText>
+                    <Typography
+                        sx={{
+                            fontSize: "1rem",
+                            color: "wheat",
+                            mb: 3,
+                            lineHeight: 1.8,
+                        }}
+                    >
+                        {selectedService?.description}
+                    </Typography>
+
+                    <Stack spacing={3}>
+                        <Box>
+                            <Typography variant="subtitle1" sx={{ color: "#48c4c4", mb: 1 }}>
+                                What You’ll Gain
+                            </Typography>
+                            <Stack spacing={1}>
+                                <Stack direction="row" alignItems="center" spacing={1}>
+                                    <CheckCircleIcon sx={{ color: "#48c4c4" }} />
+                                    <Typography sx={{ color: "wheat" }}>
+                                        Streamlined processes with measurable impact
+                                    </Typography>
+                                </Stack>
+                                <Stack direction="row" alignItems="center" spacing={1}>
+                                    <CheckCircleIcon sx={{ color: "#48c4c4" }} />
+                                    <Typography sx={{ color: "wheat" }}>
+                                        Custom strategies aligned with your goals
+                                    </Typography>
+                                </Stack>
+                                <Stack direction="row" alignItems="center" spacing={1}>
+                                    <CheckCircleIcon sx={{ color: "#48c4c4" }} />
+                                    <Typography sx={{ color: "wheat" }}>
+                                        Scalable solutions built for growth
+                                    </Typography>
+                                </Stack>
+                            </Stack>
+                        </Box>
+
+                        <Box>
+                            <Typography variant="subtitle1" sx={{ color: "#48c4c4", mb: 1 }}>
+                                Why Choose Us?
+                            </Typography>
+                            <Typography sx={{ color: "wheat", fontSize: "0.95rem", lineHeight: 1.6 }}>
+                                We combine innovation with proven methods to ensure your organization is
+                                future-ready. Our team works closely with you to design practical, high-impact
+                                solutions that deliver consistent value.
+                            </Typography>
+                        </Box>
+                    </Stack>
                 </DialogContent>
             </Dialog>
         </Container>
